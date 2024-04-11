@@ -110,11 +110,11 @@ gStyle->SetPalette(1,0);
    TString outputhist;
    TString outputpdf;
    TString outputpdf1;
-   inputroot= Form("hist/Optics_replayednewfit2_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
+   inputroot= Form("hist/Optics_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
 
-   outputpdf= Form("plots/Optics_replayed_%s_%d_ypdiff2",OpticsID.Data(),FileID);
-   outputpdf1= Form("plots/Optics_replayed_%s_%d_ypdiff_ys2",OpticsID.Data(),FileID);
-   outputhist= Form("hist/Optics_replayed_%s_%d_ypdiff_hist2.root",OpticsID.Data(),FileID);
+   outputpdf= Form("plots/Optics_%s_%d_ypdiff",OpticsID.Data(),FileID);
+   outputpdf1= Form("plots/Optics_%s_%d_ypdiff_ys",OpticsID.Data(),FileID);
+   outputhist= Form("hist/Optics_%s_%d_ypdiff_hist.root",OpticsID.Data(),FileID);
     TFile *hroot = new TFile(inputroot);;
    TTree *FitTree = (TTree*) hroot->Get("TFit");
    Double_t  ys,xtar,ztar,xptar,yptar,ytar,delta,xptarT,yptarT,ytarT,ztarT;
