@@ -111,10 +111,10 @@ gStyle->SetPalette(1,0);
    TString outputpdf;
    TString outputpdf1;
    
-   inputroot= Form("hist/Optics_replayednewfit2_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
-   outputpdf= Form("plots/Optics_replayed_%s_%d_xpdiff2",OpticsID.Data(),FileID);
-   outputpdf1= Form("plots/Optics_replayed_%s_%d_xpdiff2_xs",OpticsID.Data(),FileID);
-   outputhist= Form("hist/Optics_replayed_%s_%d_xpdiff_hist2.root",OpticsID.Data(),FileID);
+   inputroot= Form("hist/Optics_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
+   outputpdf= Form("plots/Optics_%s_%d_xpdiff",OpticsID.Data(),FileID);
+   outputpdf1= Form("plots/Optics_%s_%d_xpdiff_xs",OpticsID.Data(),FileID);
+   outputhist= Form("hist/Optics_%s_%d_xpdiff_hist.root",OpticsID.Data(),FileID);
     TFile *hroot = new TFile(inputroot);;
    TTree *FitTree = (TTree*) hroot->Get("TFit");
    Double_t  ys,xtar,ztar,xptar,yptar,ytar,delta,xptarT,yptarT,ytarT,ztarT;
@@ -338,7 +338,7 @@ Long64_t nentries = FitTree->GetEntries();
 	     }
       Double_t DelCent=(delcut[nd+1]+delcut[nd])/2;
 	  	  canFoilDel[nf][nd]->cd(1);
-		  mgrFoilDel[nf][nd]->SetTitle(Form("Ztar = %4.1f Del = %3.1f SHMS Angle = %4.2f; Y_sieve (cm); Xptar -Xp_true (mr)",ztar_foil[nf],DelCent,CentAngle));
+		  mgrFoilDel[nf][nd]->SetTitle(Form("Ztar = %4.1f Del = %3.1f HMS Angle = %4.2f; Y_sieve (cm); Xptar -Xp_true (mr)",ztar_foil[nf],DelCent,CentAngle));
 	mgrFoilDel[nf][nd]->SetMinimum(-20);
 	mgrFoilDel[nf][nd]->SetMaximum(+20);
 	mgrFoilDel[nf][nd]->Draw("AP");
@@ -363,7 +363,7 @@ Long64_t nentries = FitTree->GetEntries();
       leg[nf]->AddEntry(gXpDiff_XpTrue[nf][nd],Form("Delta = %3.1f",DelCent),"p");
 	    }
 	candel[nf]->cd(1);
-	mgr[nf]->SetTitle(Form("Ztar = %4.1f SHMS Angle = %4.2f; X_sieve (cm); Xptar -Xp_true (mr)",ztar_foil[nf],CentAngle));
+	mgr[nf]->SetTitle(Form("Ztar = %4.1f HMS Angle = %4.2f; X_sieve (cm); Xptar -Xp_true (mr)",ztar_foil[nf],CentAngle));
 	mgr[nf]->SetMinimum(-20);
 	mgr[nf]->SetMaximum(+20);
 	mgr[nf]->Draw("AP");

@@ -112,11 +112,11 @@ gStyle->SetPalette(1,0);
    TString outputpdf1;
    TString outputpdf2;
 
-   inputroot= Form("hist/Optics_replayednewfit2_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
-   outputpdf= Form("plots/Optics_replayed_%s_%d_ydiff2",OpticsID.Data(),FileID);
-   outputpdf1= Form("plots/Optics_replayed_%s_%d_ydiff_xs2",OpticsID.Data(),FileID);
-   outputpdf2= Form("plots/Optics_replayed_%s_%d_ydiff_delta2",OpticsID.Data(),FileID);
-   outputhist= Form("hist/Optics_replayed_%s_%d_ydiff_hist2.root",OpticsID.Data(),FileID);
+   inputroot= Form("hist/Optics_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
+   outputpdf= Form("plots/Optics__%s_%d_ydiff",OpticsID.Data(),FileID);
+   outputpdf1= Form("plots/Optics_%s_%d_ydiff_xs",OpticsID.Data(),FileID);
+   outputpdf2= Form("plots/Optics__%s_%d_ydiff_delta",OpticsID.Data(),FileID);
+   outputhist= Form("hist/Optics_%s_%d_ydiff_hist.root",OpticsID.Data(),FileID);
   
 
    TFile *hroot = new TFile(inputroot);;
