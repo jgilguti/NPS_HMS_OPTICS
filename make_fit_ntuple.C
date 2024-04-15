@@ -27,11 +27,12 @@
 #include <fstream>
 using namespace std;
 
-void make_fit_ntuple(Int_t nrun=1814,Int_t FileID=-2){
-  Bool_t CutYtarFlag=kTRUE;
-  Bool_t CutYpFpYFpFlag=kTRUE;
-  Bool_t CutXpFpXFpFlag=kTRUE;
-gStyle->SetPalette(1,0);
+void make_fit_ntuple_v2(Int_t nrun=1814,Int_t FileID=-2){
+ Bool_t CutYtarFlag=kTRUE;
+ Bool_t CutYpFpYFpFlag=kTRUE;
+ Bool_t CutXpFpXFpFlag=kTRUE;
+
+ gStyle->SetPalette(1,0);
  gStyle->SetOptStat(1000011);
  gStyle->SetOptFit(11);
  gStyle->SetTitleOffset(1.,"Y");
@@ -39,6 +40,7 @@ gStyle->SetPalette(1,0);
  gStyle->SetLabelSize(0.04,"XY");
  gStyle->SetTitleSize(0.06,"XY");
  gStyle->SetPadLeftMargin(0.12);
+
  //  Get info for that optics run
  TString OpticsFile = Form("DATfiles/list_of_optics_run.dat");
    ifstream file_optics(OpticsFile.Data());
@@ -50,12 +52,12 @@ gStyle->SetPalette(1,0);
   Double_t ymis =0.0;
   Int_t NumFoil=0;
   TString temp;
- //
+
   vector <Double_t> ztar_foil;
   Int_t ndelcut;
   vector<Double_t > delcut;
+
   if (file_optics.is_open()) {
-    //
     cout << " Open file = " << OpticsFile << endl;
     while (RunNum!=nrun  ) {
       temp.ReadToDelim(file_optics,',');
@@ -95,12 +97,22 @@ gStyle->SetPalette(1,0);
   } else {
     cout << " No file = " << OpticsFile << endl;    
   }
-  Double_t     y_mis = 0.1*(0.52-0.012*CentAngle+0.002*CentAngle*CentAngle); // cm
-  cout << RunNum << " " << OpticsID << " " << CentAngle << " " << NumFoil << " " << SieveFlag << " y_mis = " << y_mis<< endl;
+
+  Double_t     y_mis;
+  Double_t     x_mis;
+ 
+  if (TMath::Abs(CentAngle)<40) {y_mis = 0.1*(0.52-0.012*TMath::Abs(CentAngle)+0.002*TMath::Abs(CentAngle)*TMath::Abs(CentAngle));} // cm
+  else{y_mis = 0.1*(0.52-0.012*40. + 0.002*40.*40.);} // cm
+ 
+  if (TMath::Abs(CentAngle)<50) {x_mis = 0.1*(2.37-0.086*TMath::Abs(CentAngle)+0.0012*TMath::Abs(CentAngle)*TMath::Abs(CentAngle));}
+  else{x_mis = 0.1*(2.37-0.086*50.+0.0012*50.*50.);}
+ 
+  cout << RunNum << " " << OpticsID << " " << CentAngle << " " << NumFoil << " " << SieveFlag << " y_mis = " << y_mis<< " and x_mis = " << x_mis<< endl;
   if (NumFoil==0) return;
   for (Int_t nf=0;nf<NumFoil;nf++) {
     cout << nf << " foil = " << ztar_foil[nf] << endl;
   }
+  
   vector <Double_t> ys_cent;
   vector <Double_t> xs_cent;
   for (Int_t nys=0;nys<9;nys++) {
@@ -109,26 +121,27 @@ gStyle->SetPalette(1,0);
     Double_t xpos=(nys-4)*2.54;
     xs_cent.push_back(xpos);
   }
-  //
- //
- //
+ 
    TString inputroot;
    TString outputroot;
    inputroot=Form("ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_%s_1_%d.root", OpticsID.Data(),FileID); 
-  outputroot= Form("hist/Optics_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
+   outputroot= Form("hist/Optics_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
   
 	TH1F *hxbpm_tar = new TH1F("hxbpm_tar",Form("Run %d ; Xbpm_tar ; Counts",nrun),100,-2.,2.);
 	TH1F *hybpm_tar = new TH1F("hybpm_tar",Form("Run %d ; Ybpm_tar ; Counts",nrun),100,-2.,2.);
- //
+ 
+
   TString YtarDeltaCutFile;
   TFile *fYtarDeltaCut;
   vector <TCutG*> ytar_delta_cut;
   if (CutYtarFlag) {
     YtarDeltaCutFile=Form("cuts/ytar_delta_%s_%d_cut.root",OpticsID.Data(),FileID);
     fYtarDeltaCut = new TFile(YtarDeltaCutFile);
-    cout << " Cut file = " << YtarDeltaCutFile << endl;
+ 
+
+   cout << " Cut file = " << YtarDeltaCutFile << endl;
    for (Int_t nc=0;nc<NumFoil;nc++) {
-    fYtarDeltaCut->cd();
+      fYtarDeltaCut->cd();
       TCutG* tempcut = (TCutG*)gROOT->FindObject(Form("delta_vs_ytar_cut_foil%d",nc));
       if (tempcut) {
       Int_t npt = tempcut->GetN();
@@ -139,7 +152,7 @@ gStyle->SetPalette(1,0);
       }
    }
   }
- //
+ 
   TString outCutFile;
   TFile *fcut;
   vector<vector<vector<TCutG*> > > ypfp_yfp_cut;
@@ -202,7 +215,7 @@ cout << "number of delta regions = " << ndelcut << endl;
       }
 	}}}
   }
-//
+
 TFile *fsimc = new TFile(inputroot); 
 TTree *tsimc = (TTree*) fsimc->Get("T");
 // Define branches
@@ -242,9 +255,13 @@ TTree *tsimc = (TTree*) fsimc->Get("T");
    tsimc->SetBranchAddress("H.rb.raster.fr_xbpm_tar",&xbpm_tar);
  Double_t  ybpm_tar;
    tsimc->SetBranchAddress("H.rb.raster.fr_ybpm_tar",&ybpm_tar);
-   //
-   Double_t xptarT,ytarT,yptarT,ysieveT,xsieveT,ztarT,ztar;
-   //
+ Double_t frx;
+   tsimc->SetBranchAddress("H.rb.raster.fr_xa",&frx);
+ Double_t fry;
+   tsimc->SetBranchAddress("H.rb.raster.fr_ya",&fry);
+
+ Double_t xptarT,ytarT,yptarT,ysieveT,xsieveT,ztarT,ztar,xtarT;
+   
    TFile hroot(outputroot,"recreate");
    TTree *otree = new TTree("TFit","FitTree");
    otree->Branch("ys",&ysieve);
@@ -265,57 +282,63 @@ TTree *tsimc = (TTree*) fsimc->Get("T");
    otree->Branch("ypfp",&ypfp);
    otree->Branch("xfp",&xfp);
    otree->Branch("yfp",&yfp);
-   //
-	Double_t zdis_sieve = 168.;
+   otree->Branch("reactxcalc",&reactx);
+   otree->Branch("reactycalc",&reacty);
+
+ Double_t zdis_sieve = 168.;
  
 // loop over entries
-	Long64_t nentries = tsimc->GetEntries();
+ Long64_t nentries = tsimc->GetEntries();
  cout << " start loop for get beam positions " << nentries << endl;
- //
-	for (int i = 0; i < nentries; i++) {
-      		tsimc->GetEntry(i);
-                if (i%50000==0) cout << " Entry = " << i << endl;
-		if (etracknorm>.8 && sumnpe > 6. && delta>-10 && delta<10) {
-		hxbpm_tar->Fill(xbpm_tar);
-		hybpm_tar->Fill(ybpm_tar);		  
-		}} //
-Double_t	xbeam = -hxbpm_tar->GetMean(); // horizontal beam in Hall coordinates
-Double_t	ybeam = hybpm_tar->GetMean();
- cout << " xbeam = " << xbeam << " ybeam = " << ybeam << endl;
- cout << " start loop " << nentries << endl;
- CentAngle=CentAngle*3.14159/180.;
-	for (int i = 0; i < nentries; i++) {
-      		tsimc->GetEntry(i);
-                if (i%50000==0) cout << " Entry = " << i << endl;
-		if (etracknorm>.8 && sumnpe > 6. && delta>-10 && delta<10) {
-		  Int_t nf_found=-1, nd_found=-1,ny_found=-1,nx_found=-1;
-	         for  (UInt_t nf=0;nf<ytar_delta_cut.size();nf++) {
-		   if (ytar_delta_cut[nf]->IsInside(ytar,delta)) nf_found=nf;
-		 } 
-                 for  (UInt_t nd=0;nd<ndelcut;nd++) {
-		   if ( delta >=delcut[nd] && delta <delcut[nd+1])  nd_found=nd;
-		     }
-		 if (nf_found!=-1 && nd_found!=-1) {
-                for  (UInt_t ny=0;ny<9;ny++) {
-		  if (ypfp_yfp_cut[nf_found][nd_found][ny] && ypfp_yfp_cut[nf_found][nd_found][ny]->IsInside(ypfp,yfp)) ny_found=ny;
-		}
-                for  (UInt_t nx=0;nx<9;nx++) {
-		  if (xpfp_xfp_cut[nf_found][nd_found][nx] && xpfp_xfp_cut[nf_found][nd_found][nx]->IsInside(xpfp,xfp)) nx_found=nx;
-		}
-		 }
-		if (nf_found !=-1 && nd_found!=-1 && ny_found!=-1 && nx_found!=-1) {
-		  Double_t ytar_cent = ztar_foil[nf_found]*TMath::Sin(CentAngle) + xbeam*cos(CentAngle)-y_mis;
-	yptarT = (ys_cent[ny_found]-ytar_cent)/(zdis_sieve-ztar_foil[nf_found]*TMath::Cos(CentAngle));
-	ytarT = +ztar_foil[nf_found]*(TMath::Sin(CentAngle)-yptarT*TMath::Cos(CentAngle)) +xbeam*(TMath::Cos(CentAngle)+yptarT*TMath::Sin(CentAngle))- y_mis;
-	        xptarT = (xs_cent[nx_found])/(zdis_sieve-ztar_foil[nf_found]*TMath::Cos(CentAngle));
-		ysieveT=ys_cent[ny_found];
-		xsieveT=xs_cent[nx_found];
-		ztarT=ztar_foil[nf_found];
-		ztar=reactz;
-	         otree->Fill();
-		}
-		}
+ for (int i = 0; i < nentries; i++) {
+   tsimc->GetEntry(i);
+   if (i%50000==0) cout << " Entry = " << i << endl;
+   if (etracknorm>.8 && sumnpe > 6. && delta>-10 && delta<10) {
+     hxbpm_tar->Fill(xbpm_tar);
+     hybpm_tar->Fill(ybpm_tar);		  
+   }}
+
+Double_t xbeam = -hxbpm_tar->GetMean(); // horizontal beam in Hall coordinates
+Double_t ybeam = hybpm_tar->GetMean();
+cout << " xbeam = " << xbeam << " ybeam = " << ybeam << endl;
+
+//loop over entries
+cout << " start loop " << nentries << endl;
+CentAngle=CentAngle*3.14159/180.;
+for (int i = 0; i < nentries; i++) {
+  tsimc->GetEntry(i);
+  if (i%50000==0) cout << " Entry = " << i << endl;
+  if (etracknorm>.8 && sumnpe > 6. && delta>-10 && delta<10) {
+    Int_t nf_found=-1, nd_found=-1,ny_found=-1,nx_found=-1;
+    for  (UInt_t nf=0;nf<ytar_delta_cut.size();nf++) {
+      if (ytar_delta_cut[nf]->IsInside(ytar,delta)) nf_found=nf;
+    } 
+    for  (UInt_t nd=0;nd<ndelcut;nd++) {
+     if ( delta >=delcut[nd] && delta <delcut[nd+1])  nd_found=nd;
+    }
+    if (nf_found!=-1 && nd_found!=-1) {
+      for  (UInt_t ny=0;ny<9;ny++) {
+        if (ypfp_yfp_cut[nf_found][nd_found][ny] && ypfp_yfp_cut[nf_found][nd_found][ny]->IsInside(ypfp,yfp)) ny_found=ny;
 	}
+        for  (UInt_t nx=0;nx<9;nx++) {
+	  if (xpfp_xfp_cut[nf_found][nd_found][nx] && xpfp_xfp_cut[nf_found][nd_found][nx]->IsInside(xpfp,xfp)) nx_found=nx;
+	  }
+    }
+    if (nf_found !=-1 && nd_found!=-1 && ny_found!=-1 && nx_found!=-1) {
+      Double_t ytar_cent = ztar_foil[nf_found]*TMath::Sin(CentAngle) + xbeam*cos(CentAngle)-y_mis;
+      yptarT = (ys_cent[ny_found]-ytar_cent)/(zdis_sieve-ztar_foil[nf_found]*TMath::Cos(CentAngle));
+      ytarT = +ztar_foil[nf_found]*(TMath::Sin(CentAngle)-yptarT*TMath::Cos(CentAngle)) +xbeam*(TMath::Cos(CentAngle)+yptarT*TMath::Sin(CentAngle))- y_mis;
+      xptarT = (xs_cent[nx_found])/(zdis_sieve-ztar_foil[nf_found]*TMath::Cos(CentAngle));
+
+      xtarT = -reacty - x_mis - xptarT*ztar_foil[nf_found]*TMath::Cos(CentAngle);
+      ysieveT=ys_cent[ny_found];
+      xsieveT=xs_cent[nx_found];
+      ztarT=ztar_foil[nf_found];
+      ztar=reactz;
+      otree->Fill();
+     }
+   }
+}
 
 otree->Write();
 }
