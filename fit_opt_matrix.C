@@ -21,7 +21,7 @@
 
 
 
-void fit_opt_matrix_v2() {
+void fit_opt_matrix() {
   Int_t nSettings = 2; //number of files
   Int_t FileID=-1;
   Int_t maxFoils=3;
