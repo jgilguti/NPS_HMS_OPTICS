@@ -27,7 +27,7 @@
 #include <fstream>
 using namespace std;
 
-void make_fit_ntuple_v2(Int_t nrun=1814,Int_t FileID=-2){
+void make_fit_ntuple(Int_t nrun=1814,Int_t FileID=-2){
  Bool_t CutYtarFlag=kTRUE;
  Bool_t CutYpFpYFpFlag=kTRUE;
  Bool_t CutXpFpXFpFlag=kTRUE;
@@ -124,7 +124,7 @@ void make_fit_ntuple_v2(Int_t nrun=1814,Int_t FileID=-2){
  
    TString inputroot;
    TString outputroot;
-   inputroot=Form("ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_%s_1_%d.root", OpticsID.Data(),FileID); 
+   inputroot=Form("ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_hadd_%s_1_%d.root", OpticsID.Data(),FileID); 
    outputroot= Form("hist/Optics_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
   
 	TH1F *hxbpm_tar = new TH1F("hxbpm_tar",Form("Run %d ; Xbpm_tar ; Counts",nrun),100,-2.,2.);
@@ -269,8 +269,9 @@ TTree *tsimc = (TTree*) fsimc->Get("T");
    otree->Branch("xs",&xsieve);
    otree->Branch("xsT",&xsieveT);
    otree->Branch("ztarT",&ztarT);
-   otree->Branch("xtar",&xtar);
    otree->Branch("ztar",&ztar);
+   otree->Branch("xtar",&xtar);
+   otree->Branch("xtarT",&xtarT);
    otree->Branch("xptar",&xptar);
    otree->Branch("yptar",&yptar);
    otree->Branch("ytar",&ytar);
