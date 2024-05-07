@@ -98,7 +98,7 @@ gStyle->SetPalette(1,0);
  //
   TString inputroot;
   TString outputhist;
-  inputroot=Form("ROOTfiles/OPTICS/nps_hms_optics_%s_1_-1.root",OpticsID.Data());
+  inputroot=Form("ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_hadd_%s_1_-1.root",OpticsID.Data());
 //  inputroot=Form("ROOTfiles/OPTICS/nps_hms_optics_%s_1_%d.root",OpticsID.Data(),FileID);
 
   outputhist=Form("hist/Optics_%s_%d_hist.root",OpticsID.Data(),FileID);
@@ -225,10 +225,10 @@ TTree *tsimc = (TTree*) fsimc->Get("T");
    tsimc->SetBranchAddress("H.rb.raster.fr_xbpm_tar",&xbpm_tar);
  Double_t  ybpm_tar;
    tsimc->SetBranchAddress("H.rb.raster.fr_ybpm_tar",&ybpm_tar);
- Double_t frx;
-   tsimc->SetBranchAddress("H.rb.raster.fr_xa",&frx);
- Double_t fry;
-   tsimc->SetBranchAddress("H.rb.raster.fr_ya",&fry);
+ Double_t fr_xa;
+   tsimc->SetBranchAddress("H.rb.raster.fr_xa",&fr_xa);
+ Double_t fr_ya;
+   tsimc->SetBranchAddress("H.rb.raster.fr_ya",&fr_ya);
 
 
    // Define histograms
@@ -267,6 +267,12 @@ TTree *tsimc = (TTree*) fsimc->Get("T");
 	HList.Add(hYtarYptar);
 	TH2F *hZtarDelta = new TH2F("hZtarDelta",Form("Run %d ; Ztar ; Delta",nrun),100,-35.,25.,100,-10.,10.);
 	HList.Add(hZtarDelta);
+	
+	TH2F *hZtarFrXa = new TH2F("hZtarFrXa",Form("Run %d ; fr_xa ; Ztar",nrun),100,-0.15,0.15,100,-11.,11.);
+	HList.Add(hZtarFrXa);
+	TH2F *hZtarFrYa = new TH2F("hZtarFrYa",Form("Run %d ; fr_ya ; Ztar",nrun),100,-0.15,0.15,100,-11.,11.);
+	HList.Add(hZtarFrYa);
+
 	//
 	vector <TH2F*> hYsDelta;
 	hYsDelta.resize(NumFoil);
@@ -345,6 +351,8 @@ Long64_t nentries = tsimc->GetEntries();
                 if (i%50000==0) cout << " Entry = " << i << endl;
 		hxbpm_tar->Fill(xbpm_tar);
 		hybpm_tar->Fill(ybpm_tar);
+		hZtarFrXa->Fill(fr_xa,reactz);
+		hZtarFrYa->Fill(fr_ya,reactz);
 		if (sumnpe > 2.) hetot->Fill(etracknorm);
 		if (etracknorm>.8) hngsum->Fill(sumnpe);
 		if (sumnpe > 2. && delta>-10 && delta<10) {
