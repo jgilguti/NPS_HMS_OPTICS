@@ -24,6 +24,7 @@ using namespace std;
 void plot_xfp_cuts(Int_t nrun=1814,Int_t FileID=-2) {
   
   gROOT->Reset();
+  gROOT->SetBatch(true);
   gStyle->SetOptStat(0);
   gStyle->SetOptFit(11);
   gStyle->SetTitleOffset(1.,"Y");
