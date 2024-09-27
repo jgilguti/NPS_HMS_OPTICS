@@ -1,0 +1,41 @@
+P = -6.117; elastics; Sept 19, 2023
+runnum	target	angle	sweeper	
+1250	LH2	19.26	off
+1251	LH2	20.700	off	
+1252	LH2	20.700	off
+1253	LH2	22.120	off
+1259	LH2	22.120
+
+P = -6.117; angle = 12.395; Sept 19, 2023
+runnum	target	sweeper	cuts
+1243	8	on	
+1245	0	on	complete
+1246	8	off
+1248	3	off
+
+These next runs were probably a mistake, because polarity switched to +
+P = +6.117; angle = 12.385; Sept 19, 2023
+runnum	target	sweeper	cuts
+1188	8	check
+1194	0	
+1195	0
+1196	0
+1197	0
+
+P = -6.117; angle = 12.385; Oct 18th and 19th, 2024
+runnum	target	sweeper	cuts
+1961	0	off
+1962	0	off
+1964	0	off
+1965	8	off
+1966	8	off
+1967	8	on
+
+P = -6.117; angle = 15.195; March 10, 2024
+runnum 	target	sweeper	cuts
+5165	8	on	none
+5166	3	on	none
+5167	0	on	none
+
+
+

@@ -1,0 +1,21 @@
+P = 5.64; elastics; Sept 19, 2023
+runnum	target	angle	sweeper	
+1267	LH2	21.270	off
+1268	LH2	22.705	off
+1269	LH2	24.310	off
+
+P = 5.64; angle = 12.385; Sept 19, 2023
+runnum	target	sweeper	cuts
+1261	8	off	
+1262	8	off	
+1263	0	on
+1264	8	on
+1265	3	off
+
+P = -5.64; angle = 15.195; March 10, 2024
+runnum 	target	sweeper	cuts
+5172	3	on	none
+5173	8	on	none
+5174	0	on	none
+5175	0	off	none
+

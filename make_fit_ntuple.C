@@ -124,8 +124,11 @@ void make_fit_ntuple(Int_t nrun=1814,Int_t FileID=-2){
  
    TString inputroot;
    TString outputroot;
-   inputroot=Form("ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_hadd_%s_1_%d.root", OpticsID.Data(),FileID); 
-   outputroot= Form("hist/Optics_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
+//   inputroot=Form("ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_hadd_%s_1_%d.root", OpticsID.Data(),FileID); 
+  
+   inputroot=Form("ROOTfiles/OPTICS/nps_hms_optics_%s_1_%d.root", OpticsID.Data(),FileID); 
+
+ outputroot= Form("hist/Optics_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
   
 	TH1F *hxbpm_tar = new TH1F("hxbpm_tar",Form("Run %d ; Xbpm_tar ; Counts",nrun),100,-2.,2.);
 	TH1F *hybpm_tar = new TH1F("hybpm_tar",Form("Run %d ; Ybpm_tar ; Counts",nrun),100,-2.,2.);

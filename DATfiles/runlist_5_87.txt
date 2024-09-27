@@ -1,0 +1,27 @@
+P = 5.87; elastics; October 09, 2023
+runnum	target	angle	sweeper	
+1714	LH2	22.835	off
+1715	LH2	21.685	off
+1716	LH2	20.545	off
+
+P = -5.878; angle = 16.5; October 09, 2023
+runnum	target	sweeper	cuts
+1711	0	off	complete
+1712	0	off	
+1713	8	off
+1717	0	on
+1718	8	on
+1720	0	on
+
+P = 5.878; angle = 15.195; March 10, 2024
+* double check the sweeper setting
+runnum 	target	sweeper	cuts
+5168	0	on	none
+5169	8	on	none
+5170	3	on	none
+5171	3	on	none
+
+
+P = 5.878; angle = 16.5; May 19, 2024
+runnum 	target	sweeper	cuts
+7008	3	off	none

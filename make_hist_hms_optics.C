@@ -98,8 +98,8 @@ gStyle->SetPalette(1,0);
  //
   TString inputroot;
   TString outputhist;
-  inputroot=Form("ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_hadd_%s_1_-1.root",OpticsID.Data());
-//  inputroot=Form("ROOTfiles/OPTICS/nps_hms_optics_%s_1_%d.root",OpticsID.Data(),FileID);
+//  inputroot=Form("ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_hadd_%s_1_-1.root",OpticsID.Data());
+  inputroot=Form("ROOTfiles/OPTICS/nps_hms_optics_%s_1_%d.root",OpticsID.Data(),FileID);
 
   outputhist=Form("hist/Optics_%s_%d_hist.root",OpticsID.Data(),FileID);
   cout << " input root = " << inputroot << endl;

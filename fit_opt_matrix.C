@@ -24,12 +24,12 @@
 void fit_opt_matrix() {
   Int_t nSettings = 2; //number of files
   Int_t FileID=-1;
-  Int_t maxFoils=3;
+  Int_t maxFoils=2;
   Int_t maxDel=10;
 
   vector<int> runTot;
-  runTot.push_back(1544);
-  runTot.push_back(5162);
+  runTot.push_back(1264);
+  runTot.push_back(1263);
 
   gROOT->Reset();
   gStyle->SetOptStat(0);
@@ -39,10 +39,10 @@ void fit_opt_matrix() {
   gStyle->SetTitleSize(0.05,"XY");
   gStyle->SetPadLeftMargin(0.17);
   //
-  string newcoeffsfilename="nps_hms_newfit_all.dat";//fixme
-  string oldcoeffsfilename="hms_newfit_6_59.dat";
+  string newcoeffsfilename="nps_hms_newfit_5pt6GeV_all.dat";
+  string oldcoeffsfilename="hms_recon_coeff_opt2018.dat";
 
-  int nfit=0,npar,nfit_max=15000,npar_final=0,max_order=6,norder;
+  int nfit=0,npar,nfit_max=45000,npar_final=0,max_order=6,norder;
   Int_t MaxPerBin=1000;
   Int_t MaxZtarPerBin=15000;
 
@@ -320,7 +320,7 @@ void fit_opt_matrix() {
     }
     //
     for (Int_t nf=0;nf<maxFoils;nf++) {//max foils
-      Max_Per_Run_Per_Foil[nf] = 10500;//check this number?
+      Max_Per_Run_Per_Foil[nf] = 30000;//check this number?
       Ztar_Cnts[nf]=0;
       for (Int_t nd=0;nd<maxDel;nd++) {//max del cut
 	for (Int_t ny=0;ny<nysieve;ny++) {	
