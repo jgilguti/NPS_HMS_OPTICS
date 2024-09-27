@@ -1,10 +1,13 @@
 *~
 cuts
 hist
-NPS
+NPS-old
 Output
 plots
 ROOTfiles
 NewFits
 nps_hms_newfit_all.dat
+nps_hms_ang6_667fit_all.dat
+nps_hms_newfit_5pt6GeV_all.dat
+fit_opt_matrix_test.C
 cuts_may7_copy/

@@ -1,0 +1,37 @@
+P = 6.67; elastics; October 01, 2023
+runnum	target	angle	sweeper	
+1534	LH2	19.15	off
+1535	LH2	18.00	off
+1536	LH2	16.85	off
+1545	LH2	16.85	on
+1546	LH2	18.01	on
+1547	LH2	19.15	on
+1548	LH2	19.15	on
+
+P = 6.67; angle = 12.490; October 01, 2023
+runnum	target	sweeper	cuts
+1540	8	ON	complete
+1543	0	ON	tbd
+1544	0	ON	complete
+
+P = 6.67; angle = 15.195; March 09, 2024
+runnum 	target	sweeper	cuts
+5156	3	ON	
+5157	3	ON	
+5158	3	ON
+5159	3	ON	
+5160	3	ON
+5161	8	ON
+5162	0	ON
+5163	8	ON
+5164	8	OFF
+
+Runs 5156, 5157, 5158, 5159, 5160 combined in ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_hadd_5160_1_-1.root
+Run 5162 not combined because it's the only z=0 and HMS at 15.195 deg
+Run s 5161, 5163 combined in ROOTfiles/OPTICS/6667GeV/nps_hms_optics_hadd_5163_1_-1.root
+
+P = 6.67; angle = 12.5; May 19, 2024
+runnum 	target	sweeper	cuts
+6983	8	on	none
+6984	8	on	none
+6985	3	off	none

@@ -64,7 +64,7 @@ RUN: 1264, p=-5.639 GeV/c, Sieve, Mag ON, Carbon +/-8 cm
 -7.5.,7.5.
 -10,-8.,-5.,0.,5.,10.
 
-RUN: 1265, p=-5.639 GeV/c, Sieve, Mag ON, Carbon +/-3 cm
+RUN: 1265, p=-5.639 GeV/c, Sieve, Mag OFF, Carbon +/-3 cm
 1265,1265,12.385,2,1,6,0.0
 -3.,3.
 -10,-8.,-5.,0.,5.,10.

@@ -1,0 +1,22 @@
+Delta optimization overview
+//////////////////////////////
+Goals
+- remove correlations in yptar, xptar
+- does W get off with negative delta and need correction, like in PionLT?
+- general approach is to select elastic events and iterate to correct delta to low order
+
+1.	a. First, complete the angular optimization for the P setting
+ 	b. Replay delta runs with new angular MEs
+		Question: fit_opt_matrix.C spits out new angular elements, and the delta opt from the previous matrix.  Do we keep these 4th column values or zero them out?
+		Question: do we change the hms_flags.param file to use the new phi? (yptar offset)?
+			Answer: no, not now.  Keep offsets at zero in hms_flags.param until after the delta opt complete.
+	c. Use the delta fitting script and look at W for each run
+		c.' How is W shifting through momentum setting and angle
+	d. Determine a single P offset, i.e. 0.997xP
+
+2. Now use fit_delta.C to iterate and find better additive values for calculating delta
+	* You can change the fitting order
+	* don't do more replays yet, this reads in the delta coefficients
+	* look at the useful calculations in lines 646-663
+	* the cut on elastics is the second peak on the X_b plot, should be around 1 of course
+3. Put overall delta offset into HMS flags

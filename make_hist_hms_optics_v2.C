@@ -101,7 +101,7 @@ void make_hist_hms_optics_v2(Int_t nrun=4819,Bool_t CutYtarFlag=kTRUE,Bool_t Cut
 
   TString inputroot;
   TString outputhist;
-  inputroot=Form("ROOTfiles/OPTICS/nps_hms_optics_jmurphyME_%s_1_%d.root",OpticsID.Data(),FileID);
+  inputroot=Form("ROOTfiles/OPTICS/nps_hms_optics_%s_1_%d.root",OpticsID.Data(),FileID);
   outputhist=Form("hist/Optics_%s_%d_NewFit2_hist.root",OpticsID.Data(),FileID);
   cout << " input root = " << inputroot << endl;
   TObjArray HList(0);
@@ -271,7 +271,7 @@ TTree *tsimc = (TTree*) fsimc->Get("T");
 
 	//added text to read in matrix elements directly:
 	//parse the input matrix elements
-	string coeffsfilename="NewFits/nps_hms_newfit2_all_1544_-10.dat";//change this to your M.E file
+	string coeffsfilename="NewFits/nps_newfit_5pt6GeV_all.dat";//change this to your M.E file
 	cout << "New Matrix incoming line 279" << endl;
 	ifstream coeffsfile(coeffsfilename.c_str());
 	TString currentline;

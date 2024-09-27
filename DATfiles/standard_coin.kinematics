@@ -127,7 +127,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1241 - 1248
-gpbeam = 10.539
+#optics 
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 12.0107
 htheta_lab = -12.395
 hpcentral = 6.117
@@ -136,7 +137,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1249
-gpbeam = 10.539
+#optics/delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -12.395
 hpcentral = 6.117
@@ -145,7 +147,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1250
-gpbeam = 10.539
+#optics/delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -19.26
 hpcentral = 6.117
@@ -154,7 +157,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1251 - 1252
-gpbeam = 10.539
+#optics/delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -20.700
 hpcentral = 6.117
@@ -163,7 +167,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1253
-gpbeam = 10.539
+#optics/delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -22.12
 hpcentral = 6.117
@@ -173,7 +178,8 @@ hpartmass = 0.000511
 
 
 1254 - 1259
-gpbeam = 10.539
+#optics/delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -22.12
 hpcentral = 6.117
@@ -182,7 +188,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1260
-gpbeam = 10.539
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 12.0107
 htheta_lab = -15.33
 hpcentral = 5.639
@@ -191,7 +198,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1261 - 1265
-gpbeam = 10.539
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 12.0107
 htheta_lab = -12.385
 hpcentral = 5.639
@@ -200,7 +208,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1266 
-gpbeam = 10.539
+#optics/delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -12.385
 hpcentral = 5.639
@@ -209,7 +218,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1267 
-gpbeam = 10.539
+#optics/delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -21.270
 hpcentral = 5.639
@@ -218,18 +228,20 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1268
-gpbeam = 10.539
+#optics/delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
-htheta_lab = -22.7
+htheta_lab = -22.705
 hpcentral = 5.639
 stheta_lab = 37.3
 nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1269
-gpbeam = 10.539
+#optics/delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
-htheta_lab = -24.3
+htheta_lab = -24.310
 hpcentral = 5.639
 stheta_lab = 37.3
 nps_theta_offset = -16.3
@@ -515,7 +527,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1531 - 1534
-gpbeam = 10.539
+#optics, delta scan/elastic
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -19.145
 hpcentral = 6.667
@@ -524,7 +537,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1535
-gpbeam = 10.539
+#optics, delta scan/elastic
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -17.995
 hpcentral = 6.667
@@ -533,7 +547,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1536
-gpbeam = 10.539
+#optics, delta scan/elastic
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -16.850
 hpcentral = 6.667
@@ -542,7 +557,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1537 - 1544
-gpbeam = 10.539
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 12.0107
 htheta_lab = -12.490
 hpcentral = 6.667
@@ -551,7 +567,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1545
-gpbeam = 10.539
+#optics, delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -16.850
 hpcentral = 6.667
@@ -560,7 +577,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1546
-gpbeam = 10.539
+#optics, delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -18.005
 hpcentral = 6.667
@@ -569,7 +587,8 @@ nps_theta_offset = -16.3
 hpartmass = 0.000511
 
 1547 - 1548
-gpbeam = 10.539
+#optics, delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu= 1.00794
 htheta_lab = -19.150
 hpcentral = 6.667
@@ -1352,7 +1371,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 1711 - 1711
-gpbeam = 10.537611650192765
+#optics 
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.500
 hpcentral = 5.878
@@ -1361,7 +1381,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 1712 - 1712
-gpbeam = 10.540481931142118
+#optics 
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.500
 hpcentral = 5.878
@@ -1370,7 +1391,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 1713 - 1713
-gpbeam = 10.540481931142118
+#optics 
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.500
 hpcentral = 5.878
@@ -1379,7 +1401,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 1714 - 1714
-gpbeam = 10.538717579539613
+#optics #elastic delta scan 
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 1.007825032
 htheta_lab = -22.835
 hpcentral = 5.878
@@ -1388,7 +1411,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 1715 - 1715
-gpbeam = 10.53851679062114
+#optics #elastic delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 1.007825032
 htheta_lab = -21.685
 hpcentral = 5.878
@@ -1397,7 +1421,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 1716 - 1716
-gpbeam = 10.538395524390518
+#optics #elastic delta scan
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 1.007825032
 htheta_lab = -20.545
 hpcentral = 5.878
@@ -1406,7 +1431,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 1717 - 1717
-gpbeam = 10.538543034154232
+#optics 
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.495
 hpcentral = 5.878
@@ -1415,7 +1441,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 1718 - 1718
-gpbeam = 10.53857663627749
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.495
 hpcentral = 5.878
@@ -1424,7 +1451,7 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 1719 - 1719
-gpbeam = 10.538705023841318
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.495
 hpcentral = 5.878
@@ -1433,7 +1460,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 1720 - 1720
-gpbeam = 10.53830618901612
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.495
 hpcentral = 5.878
@@ -3557,7 +3585,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.938272
 
 1960 - 1960
-gpbeam = 10.540481931142118
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -12.385
 hpcentral = 6.117
@@ -3566,7 +3595,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.938272
 
 1961 - 1961
-gpbeam = 10.538714741183279
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -12.385
 hpcentral = 6.117
@@ -3575,7 +3605,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.938272
 
 1962 - 1962
-gpbeam = 10.537929741480351
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -12.385
 hpcentral = 6.117
@@ -3584,7 +3615,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.938272
 
 1963 - 1963
-gpbeam = 10.538301124300501
+#optics, junk?
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -12.385
 hpcentral = 6.117
@@ -3593,7 +3625,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.938272
 
 1964 - 1964
-gpbeam = 10.537193262999367
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -12.385
 hpcentral = 6.117
@@ -3602,7 +3635,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.938272
 
 1965 - 1965
-gpbeam = 10.538070004958845
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -12.385
 hpcentral = 6.117
@@ -3611,7 +3645,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.938272
 
 1966 - 1966
-gpbeam = 10.53834145007292
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -12.385
 hpcentral = 6.117
@@ -3620,7 +3655,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.938272
 
 1967 - 1967
-gpbeam = 10.540481931142118
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -12.385
 hpcentral = 4.087
@@ -5573,7 +5609,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 2184 - 2184
-gpbeam = 10.537131065491565
+#optics, low mom
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.435
 hpcentral = 4.637
@@ -5582,7 +5619,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 2185 - 2185
-gpbeam = 10.540481931142118
+#optics, low mom
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.435
 hpcentral = 4.637
@@ -5591,7 +5629,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 2186 - 2186
-gpbeam = 10.53692784523528
+#optics, low mom
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.435
 hpcentral = 4.637
@@ -5600,7 +5639,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 2187 - 2187
-gpbeam = 10.536512853049516
+#optics, low mom
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -16.435
 hpcentral = 4.637
@@ -32552,7 +32592,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5156 - 5156
-gpbeam = 10.537231945547326
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -15.195
 hpcentral = 6.667
@@ -32561,7 +32602,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5157 - 5157
-gpbeam = 10.537709430292526
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -15.195
 hpcentral = 6.667
@@ -32570,7 +32612,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5158 - 5158
-gpbeam = 10.53634338335563
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -15.195
 hpcentral = 6.667
@@ -32579,7 +32622,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5159 - 5159
-gpbeam = 10.536153537285529
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -15.195
 hpcentral = 6.667
@@ -32588,7 +32632,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5160 - 5160
-gpbeam = 10.53636954739391
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -15.195
 hpcentral = 6.667
@@ -32597,7 +32642,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5161 - 5161
-gpbeam = 10.537265784438182
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -15.195
 hpcentral = 6.667
@@ -32606,7 +32652,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5162 - 5162
-gpbeam = 10.537709430292526
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -15.195
 hpcentral = 6.667
@@ -32615,7 +32662,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5163 - 5163
-gpbeam = 10.537286018549425
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -15.195
 hpcentral = 6.667
@@ -32624,7 +32672,8 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5164 - 5164
-gpbeam = 10.53725756403175
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
 htheta_lab = -15.195
 hpcentral = 6.667
@@ -32633,99 +32682,110 @@ nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5165 - 5165
-gpbeam = 10.53732235070621
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 6.117
 stheta_lab = 27.5
 nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5166 - 5166
-gpbeam = 10.537280811089603
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 6.117
 stheta_lab = 27.5
 nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5167 - 5167
-gpbeam = 10.537496800340437
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 6.117
 stheta_lab = 27.5
 nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5168 - 5168
-gpbeam = 10.53724553428062
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 5.878
 stheta_lab = 27.5
 nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5169 - 5169
-gpbeam = 10.53730655583949
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 5.878
 stheta_lab = 27.5
 nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5170 - 5170
-gpbeam = 10.53730655583949
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 5.878
 stheta_lab = 27.5
 nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5171 - 5171
-gpbeam = 10.53730655583949
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 5.878
 stheta_lab = 27.5
 nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5172 - 5172
-gpbeam = 10.53730655583949
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 5.639
 stheta_lab = 27.5
 nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5173 - 5173
-gpbeam = 10.53730655583949
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 5.639
 stheta_lab = 27.5
 nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5174 - 5174
-gpbeam = 10.53730655583949
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 5.639
 stheta_lab = 27.5
 nps_theta_offset= -16.3
 hpartmass = 0.000511
 
 5175 - 5175
-gpbeam = 10.53730655583949
+#optics
+gpbeam = 10.5378-0.0013
 gtargmass_amu = 12.0107
-htheta_lab = -15.200000000000001
+htheta_lab = -15.195
 hpcentral = 5.639
 stheta_lab = 27.5
 nps_theta_offset= -16.3
@@ -35313,4 +35373,14 @@ hpcentral = 2.638
 stheta_lab = 32.01
 nps_theta_offset= -16.3
 hpartmass = 0.000511
+
+6830 - 6830
+gpbeam = 6.36928
+gtargmass_amu = 1.007825032
+htheta_lab = -24.86
+hpcentral = 4.042
+stheta_lab = 37.49
+nps_theta_offset= -16.3
+hpartmass = 0.000511
+
 
