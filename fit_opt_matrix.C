@@ -22,14 +22,14 @@
 
 
 void fit_opt_matrix() {
-  Int_t nSettings = 2; //number of files
+  Int_t nSettings = 1; //number of files
   Int_t FileID=-1;
   Int_t maxFoils=3;
   Int_t maxDel=10;
 
   vector<int> runTot;
   runTot.push_back(1544);
-  runTot.push_back(5162);
+
 
   gROOT->Reset();
   gStyle->SetOptStat(0);
@@ -42,9 +42,9 @@ void fit_opt_matrix() {
   string newcoeffsfilename="nps_hms_newfit_all.dat";//fixme
   string oldcoeffsfilename="hms_newfit_6_59.dat";
 
-  int nfit=0,npar,nfit_max=15000,npar_final=0,max_order=6,norder;
-  Int_t MaxPerBin=1000;
-  Int_t MaxZtarPerBin=15000;
+  int nfit=0,npar,nfit_max=24000,npar_final=0,max_order=6,norder;
+  Int_t MaxPerBin=20000;
+  Int_t MaxZtarPerBin=20000;
 
   //
   TH1F *hDelta = new TH1F("hDelta","Delta ",20,-10.,30.);
@@ -320,7 +320,7 @@ void fit_opt_matrix() {
     }
     //
     for (Int_t nf=0;nf<maxFoils;nf++) {//max foils
-      Max_Per_Run_Per_Foil[nf] = 10500;//check this number?
+      Max_Per_Run_Per_Foil[nf] = 6000;//check this number?
       Ztar_Cnts[nf]=0;
       for (Int_t nd=0;nd<maxDel;nd++) {//max del cut
 	for (Int_t ny=0;ny<nysieve;ny++) {	

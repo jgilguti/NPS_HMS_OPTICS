@@ -27,7 +27,7 @@
 #include <fstream>
 using namespace std;
 
-void make_fit_ntuple(Int_t nrun=1814,Int_t FileID=-2){
+void make_fit_ntuple(Int_t nrun=1544,Int_t FileID=-2){
  Bool_t CutYtarFlag=kTRUE;
  Bool_t CutYpFpYFpFlag=kTRUE;
  Bool_t CutXpFpXFpFlag=kTRUE;
@@ -59,7 +59,7 @@ void make_fit_ntuple(Int_t nrun=1814,Int_t FileID=-2){
 
   if (file_optics.is_open()) {
     cout << " Open file = " << OpticsFile << endl;
-    while (RunNum!=nrun  ) {
+    while (RunNum!=nrun ) {
       temp.ReadToDelim(file_optics,',');
       cout << temp << endl;
       if (temp.Atoi() == nrun) {
@@ -124,7 +124,7 @@ void make_fit_ntuple(Int_t nrun=1814,Int_t FileID=-2){
  
    TString inputroot;
    TString outputroot;
-   inputroot=Form("ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_hadd_%s_1_%d.root", OpticsID.Data(),FileID); 
+   inputroot=Form("/w/hallc-scshelf2102/nps/cploen/ROOTfiles/OPTICS/nps_hms_optics_jmurphyME_%s_1_-1.root", OpticsID.Data()); 
    outputroot= Form("hist/Optics_%s_%d_fit_tree.root",OpticsID.Data(),FileID);
   
 	TH1F *hxbpm_tar = new TH1F("hxbpm_tar",Form("Run %d ; Xbpm_tar ; Counts",nrun),100,-2.,2.);

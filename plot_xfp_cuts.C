@@ -21,7 +21,7 @@
 using namespace std;
 
 
-void plot_xfp_cuts(Int_t nrun=1814,Int_t FileID=-2) {
+void plot_xfp_cuts(Int_t nrun=1544,Int_t FileID=-2) {
   
   gROOT->Reset();
   gStyle->SetOptStat(0);

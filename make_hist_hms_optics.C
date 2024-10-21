@@ -27,7 +27,7 @@
 #include <fstream>
 using namespace std;
 
-void make_hist_hms_optics(Int_t nrun=1544,Bool_t CutYtarFlag=kTRUE,Bool_t CutYpFpYFpFlag=kTRUE,Bool_t CutXpFpXFpFlag=kTRUE,Int_t FileID=-2){
+void make_hist_hms_optics(Int_t nrun=1711,Bool_t CutYtarFlag=kFALSE,Bool_t CutYpFpYFpFlag=kFALSE,Bool_t CutXpFpXFpFlag=kFALSE,Int_t FileID=-1){
 gStyle->SetPalette(1,0);
  gStyle->SetOptStat(1000011);
  gStyle->SetOptFit(11);
@@ -98,7 +98,7 @@ gStyle->SetPalette(1,0);
  //
   TString inputroot;
   TString outputhist;
-  inputroot=Form("ROOTfiles/OPTICS/6_667GeV/nps_hms_optics_hadd_%s_1_-1.root",OpticsID.Data());
+  inputroot=Form("/volatile/hallc/xem2/jgilguti/ROOTfiles/HMS/OPTICS/nps_hms_optics_%s_1_-1.root",OpticsID.Data());
 //  inputroot=Form("ROOTfiles/OPTICS/nps_hms_optics_%s_1_%d.root",OpticsID.Data(),FileID);
 
   outputhist=Form("hist/Optics_%s_%d_hist.root",OpticsID.Data(),FileID);

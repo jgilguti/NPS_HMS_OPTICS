@@ -23,7 +23,7 @@
 using namespace std;
 
 
-void set_xpfp_xfp_cuts(Int_t nrun=1814,Int_t FileID=-2,Double_t hist_minZ=1.) {
+void set_xpfp_xfp_cuts(Int_t nrun=1544,Int_t FileID=-1,Double_t hist_minZ=1.) {
   
   gROOT->Reset();
   gStyle->SetOptStat(0);

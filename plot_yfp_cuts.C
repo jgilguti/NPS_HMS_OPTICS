@@ -21,7 +21,7 @@
 using namespace std;
 
 
-void plot_yfp_cuts(Int_t nrun=1814,Int_t FileID=-2) {
+void plot_yfp_cuts(Int_t nrun=1544,Int_t FileID=-2) {
   
   gROOT->Reset();
   gROOT->SetBatch(true);

@@ -27,7 +27,7 @@
 #include <fstream>
 using namespace std;
 
-void plot_xptar_diff(Int_t nrun=1814,Int_t FileID=-2){
+void plot_xptar_diff(Int_t nrun=1544,Int_t FileID=-2){
 gStyle->SetPalette(1,0);
  gStyle->SetOptStat(1000011);
  gStyle->SetOptFit(11);
