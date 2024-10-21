@@ -1,3 +1,11 @@
+Before beginning, set up the following directories:
+
+$ ln -s /w/hallc-scshelf2102/nps/$USER/ROOTfiles ROOTfiles
+$ mkdir hist
+$ mkdir cuts
+$ mkdir plots
+
+Then,
 1.  hcana [0] .x make_hist_hms_optics.C(1544,kFALSE,kFALSE,kFALSE,-1)
 2.  hcana [0] .x set_ytar_delta_cuts.C(1544,-1)
 3.  hcana [0] .x make_hist_hms_optics.C(1544,kTRUE,kFALSE,kFALSE,-1)
@@ -22,18 +30,10 @@
 copy matrix file and remove everything up to first order line, and use this with the following:
 
 a.  hcana [0] .x make_hist_hms_optics_v2.C(1544,kTRUE,kFALSE,kFALSE,-1)
+   a'. Well, you may need to remake the yptar cuts, and make sure you're not overwriting cuts files so change the extension names or something.
 b.  hcana [0] .x plot_yfp_cuts.C(1544,-1)
 c.  hcana [0] .x plot_xfp_cuts.C(1544,-1)
 
 Things to check - ztar vs ztarg vs ztarcalc within make_hist_hms_optics_v2.C
 
-fri-
-made some new cuts after seeing how the the new matrix performed (NewFit1)
-Sat-
-ran the plotting scripts and changed them to not overwrite the old ones
-I did overwrite the cuts used by the plotting script.
-then i perormed steps 6-10, then a, b but the plots in b did not populate in the sieve holes (except for the 4th y sieve. 
-The fit_opt_matrix histo was not filled
 
-Monday - 
-Working now.

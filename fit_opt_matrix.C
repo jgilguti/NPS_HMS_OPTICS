@@ -21,15 +21,25 @@
 
 
 
+<<<<<<< HEAD
 void fit_opt_matrix() {
   Int_t nSettings = 1; //number of files
+=======
+void fit_opt_matrix_v2(Int_t nSettings = 1) {
+  //  Int_t nSettings = 1; //number of files
+>>>>>>> refs/remotes/origin/main
   Int_t FileID=-1;
-  Int_t maxFoils=3;
+  Int_t maxFoils=2;
   Int_t maxDel=10;
 
   vector<int> runTot;
+<<<<<<< HEAD
   runTot.push_back(1544);
 
+=======
+  runTot.push_back(1264);
+  runTot.push_back(1263);
+>>>>>>> refs/remotes/origin/main
 
   gROOT->Reset();
   gStyle->SetOptStat(0);
@@ -39,12 +49,18 @@ void fit_opt_matrix() {
   gStyle->SetTitleSize(0.05,"XY");
   gStyle->SetPadLeftMargin(0.17);
   //
-  string newcoeffsfilename="nps_hms_newfit_all.dat";//fixme
-  string oldcoeffsfilename="hms_newfit_6_59.dat";
+  string newcoeffsfilename="nps_hms_newfit_5pt6GeV_all.dat";
+  string oldcoeffsfilename="DATfiles/hms_recon_coeff_opt2018.dat";
 
+<<<<<<< HEAD
   int nfit=0,npar,nfit_max=24000,npar_final=0,max_order=6,norder;
   Int_t MaxPerBin=20000;
   Int_t MaxZtarPerBin=20000;
+=======
+  int nfit=0,npar,nfit_max=45000,npar_final=0,max_order=6,norder;
+  Int_t MaxPerBin=1000;
+  Int_t MaxZtarPerBin=15000;
+>>>>>>> refs/remotes/origin/main
 
   //
   TH1F *hDelta = new TH1F("hDelta","Delta ",20,-10.,30.);
@@ -68,9 +84,36 @@ void fit_opt_matrix() {
   TH1F *hyptarnew = new TH1F("hyptarnew","yptar new recon ",100,-.1,.1);
   TH1F *hyptarnewdiff = new TH1F("hyptarnewdiff","yptar new diff (mr) ",100,-10,10);
   //
-  ifstream oldcoeffsfile(oldcoeffsfilename.c_str());
   ofstream newcoeffsfile(newcoeffsfilename.c_str());
-
+ ifstream oldcoeffsfile(oldcoeffsfilename.c_str());
+   if(!oldcoeffsfile.is_open()) {
+     cout << " error opening reconstruction coefficient file: " << oldcoeffsfilename.c_str() << endl;
+     return;
+   } else {
+     cout << "Open  Old coeff file = " << oldcoeffsfilename.c_str() << endl;
+   }
+   string line="!";
+  int good = getline(oldcoeffsfile,line).good();
+  int nskip=0;
+  if ( line[0] =='!') {
+  while(good && line[0]=='!') {
+    good = getline(oldcoeffsfile,line).good();
+    nskip++;
+    //    cout << line << endl;
+  }
+  }
+  cout << " skipped " << nskip << " comments lines in file : " << oldcoeffsfilename.c_str() << endl;
+  cout << " at line = " << line.c_str() << endl;
+  nskip=0;
+ if ( line.compare(0,4," ---")==0) {
+  while(good && line.compare(0,4," ---")==0) {
+    good = getline(oldcoeffsfile,line).good();
+    nskip++;
+  }
+ }
+  cout << " skipped " << nskip << " separation lines in file : " << oldcoeffsfilename.c_str() << endl;
+  cout << line.c_str() << endl;
+ 
   vector<double> xptarcoeffs_old;
   vector<double> yptarcoeffs_old;
   vector<double> ytarcoeffs_old;
@@ -122,67 +165,61 @@ void fit_opt_matrix() {
   ypfpexpon_fit.push_back(0);
   xtarexpon_fit.push_back(0);
   num_recon_terms_fit = 1;
-  
-  
-  //
-  while( currentline.ReadLine(oldcoeffsfile,kFALSE) && !currentline.BeginsWith(" ----") ){
-/*    
-    TString sc1(currentline(1,16));
-    TString sc2(currentline(17,16));
-    TString sc3(currentline(33,16));
-    TString sc4(currentline(49,16));
-*/
-
-    TString sc1(currentline(1,17));
-    TString sc2(currentline(18,17));
-    TString sc3(currentline(35,17));
-    TString sc4(currentline(52,17));
+    //
+    Double_t Coeff[4];
+    Int_t Exp[5];
+  while( good && line.compare(0,4," ---")!=0 ){
+    sscanf(line.c_str()," %le %le %le %le %1d%1d%1d%1d%1d"
+	   ,&Coeff[0],&Coeff[1]
+	   ,&Coeff[2],&Coeff[3]
+	   ,&Exp[0]
+	   ,&Exp[1]
+	   ,&Exp[2]
+	   ,&Exp[3]
+	   ,&Exp[4]);
     
-    xptarcoeffs_old.push_back(sc1.Atof());
-    ytarcoeffs_old.push_back(sc2.Atof());
-    yptarcoeffs_old.push_back(sc3.Atof());
-    deltacoeffs_old.push_back(sc4.Atof());
+    xptarcoeffs_old.push_back(Coeff[0]);
+    ytarcoeffs_old.push_back(Coeff[1]);
+    yptarcoeffs_old.push_back(Coeff[2]);
+    deltacoeffs_old.push_back(Coeff[3]);
     
-    int expontemp[5];
 
-    for(int expon=0; expon<5; expon++){
-//      TString stemp(currentline(66+expon,1));
-      TString stemp(currentline(70+expon,1));
-      expontemp[expon] = stemp.Atoi();
-    }
-
-    xfpexpon_old.push_back(expontemp[0]);
-    xpfpexpon_old.push_back(expontemp[1]);
-    yfpexpon_old.push_back(expontemp[2]);
-    ypfpexpon_old.push_back(expontemp[3]);
-    xtarexpon_old.push_back(expontemp[4]);
+    xfpexpon_old.push_back(Exp[0]);
+    xpfpexpon_old.push_back(Exp[1]);
+    yfpexpon_old.push_back(Exp[2]);
+    ypfpexpon_old.push_back(Exp[3]);
+    xtarexpon_old.push_back(Exp[4]);
 
     num_recon_terms_old++;
-    norder= expontemp[0]+expontemp[1]+expontemp[2]+expontemp[3]+expontemp[4];
-    if (expontemp[4]==0) {
-    xptarcoeffs_fit.push_back(sc1.Atof());
-    ytarcoeffs_fit.push_back(sc2.Atof());
-    yptarcoeffs_fit.push_back(sc3.Atof());
-    deltacoeffs_fit.push_back(sc4.Atof());
-    xfpexpon_fit.push_back(expontemp[0]);
-    xpfpexpon_fit.push_back(expontemp[1]);
-    yfpexpon_fit.push_back(expontemp[2]);
-    ypfpexpon_fit.push_back(expontemp[3]);
-    xtarexpon_fit.push_back(expontemp[4]);
-   // cout << num_recon_terms_fit << " " <<  xptarcoeffs_fit[num_recon_terms_fit] << " " << ytarcoeffs_fit[num_recon_terms_fit] << " " <<  yptarcoeffs_fit[num_recon_terms_fit] << " " << deltacoeffs_fit[num_recon_terms_fit] << " " << xfpexpon_fit[num_recon_terms_fit] << " " << xpfpexpon_fit[num_recon_terms_fit] << " " << yfpexpon_fit[num_recon_terms_fit] << " " << ypfpexpon_fit[num_recon_terms_fit] << " " << xtarexpon_fit[num_recon_terms_fit] << " " << endl;
+    norder= Exp[0]+Exp[1]+Exp[2]+Exp[3]+Exp[4];
+    if (Exp[4]==0) {
+    xptarcoeffs_fit.push_back(Coeff[0]);
+    ytarcoeffs_fit.push_back(Coeff[1]);
+    yptarcoeffs_fit.push_back(Coeff[2]);
+    deltacoeffs_fit.push_back(Coeff[3]);
+    
+
+    xfpexpon_fit.push_back(Exp[0]);
+    xpfpexpon_fit.push_back(Exp[1]);
+    yfpexpon_fit.push_back(Exp[2]);
+    ypfpexpon_fit.push_back(Exp[3]);
+    xtarexpon_fit.push_back(Exp[4]);
     num_recon_terms_fit++;
     } else {
-    xptarcoeffs_xtar.push_back(sc1.Atof());
-    ytarcoeffs_xtar.push_back(sc2.Atof());
-    yptarcoeffs_xtar.push_back(sc3.Atof());
-    deltacoeffs_xtar.push_back(sc4.Atof());
-    xfpexpon_xtar.push_back(expontemp[0]);
-    xpfpexpon_xtar.push_back(expontemp[1]);
-    yfpexpon_xtar.push_back(expontemp[2]);
-    ypfpexpon_xtar.push_back(expontemp[3]);
-    xtarexpon_xtar.push_back(expontemp[4]);
+    xptarcoeffs_xtar.push_back(Coeff[0]);
+    ytarcoeffs_xtar.push_back(Coeff[1]);
+    yptarcoeffs_xtar.push_back(Coeff[2]);
+    deltacoeffs_xtar.push_back(Coeff[3]);
+    
+
+    xfpexpon_xtar.push_back(Exp[0]);
+    xpfpexpon_xtar.push_back(Exp[1]);
+    yfpexpon_xtar.push_back(Exp[2]);
+    ypfpexpon_xtar.push_back(Exp[3]);
+    xtarexpon_xtar.push_back(Exp[4]);
     num_recon_terms_xtar++;
     }
+    good = getline(oldcoeffsfile,line).good();
   }
 
   cout << "num recon terms in OLD matrix = " << num_recon_terms_old << endl;
@@ -320,7 +357,11 @@ void fit_opt_matrix() {
     }
     //
     for (Int_t nf=0;nf<maxFoils;nf++) {//max foils
+<<<<<<< HEAD
       Max_Per_Run_Per_Foil[nf] = 6000;//check this number?
+=======
+      Max_Per_Run_Per_Foil[nf] = 30000;//check this number?
+>>>>>>> refs/remotes/origin/main
       Ztar_Cnts[nf]=0;
       for (Int_t nd=0;nd<maxDel;nd++) {//max del cut
 	for (Int_t ny=0;ny<nysieve;ny++) {	
